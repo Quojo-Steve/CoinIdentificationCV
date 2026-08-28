@@ -178,7 +178,9 @@ def segment_kmeans(img_bgr, k=KMEANS_K):
     # count. Treat everything else as foreground (coins + shadow edges).
     counts = np.bincount(labels.flatten(), minlength=k)
     bg_cluster = int(np.argmax(counts))
-    mask = np.where(labels == bg_cluster, 0, 255).astype(np.uint8)
+    remaining = [c for c in range(k) if c != bg_cluster]
+    coin_cluster = min(remaining, key=lambda c: counts[c])
+    mask = np.where(labels == coin_cluster, 255, 0).astype(np.uint8)
 
     kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (7, 7))
     mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel, iterations=2)

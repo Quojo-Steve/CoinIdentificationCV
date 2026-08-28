@@ -1,4 +1,4 @@
 method,segmentation_accuracy_iou,mean_processing_time_s,iou_drop_under_noise,iou_drop_under_dim_illumination
-thresholding,0.5077,0.0133,-0.0103,-0.0001
-region_growing,0.2977,0.1873,0.0177,-0.131
-kmeans,0.2379,0.5872,-0.2245,0.0016
+thresholding,0.5077,0.0149,-0.0103,-0.0001
+region_growing,0.2977,0.2097,0.0177,-0.131
+kmeans,0.5284,0.599,0.1046,-0.0
